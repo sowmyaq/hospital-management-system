@@ -1,754 +1,574 @@
-# 🏥 Hospital Management System
+# Hospital Management System
 
-A complete, modern Hospital Management System with professional UI, clean architecture, and industry best practices.
+A complete, modern Hospital Management System built with React + Vite + Tailwind CSS (Frontend) and Node.js + Express.js + MongoDB (Backend). Features role-based access control, appointment booking, medical records management, billing, and more.
 
-## ✨ Features
+## 📋 Features
 
-### 🔐 Authentication & Authorization
-- JWT-based authentication
-- Role-based access control (Admin, Doctor, Receptionist, Patient)
-- Secure login/register with password hashing
+### Authentication & Authorization
+- ✅ Secure JWT-based authentication
+- ✅ Role-based access control (Admin, Doctor, Receptionist, Patient)
+- ✅ Secure password hashing with bcrypt
+- ✅ Token refresh mechanism
 
-### 📊 Role-Specific Dashboards
-- **Admin**: System overview, analytics, user management, reports
-- **Doctor**: Patient list, appointments, medical records, consultation history
-- **Receptionist**: Appointment scheduling, patient check-in, billing management
-- **Patient**: Medical history, appointments, billing information, prescriptions
+### User Management
+- ✅ User registration and login
+- ✅ Profile management with image upload
+- ✅ Role-specific dashboards
+- ✅ User settings and preferences
 
-### 👥 Core Modules
-- Patient Management (CRUD operations, medical history, allergies)
-- Doctor Management (specialization, schedule, ratings)
-- Appointment Booking & Management (scheduling, status tracking)
-- Medical Records (diagnosis, prescriptions, vitals, notes)
-- Billing & Payments (invoices, payment tracking, receipt generation)
-- Pharmacy & Inventory (medicine stock, expiry tracking)
-- Search, Filter & Pagination
-- Reports & Analytics
-- Notifications & Alerts
-- Profile & Settings Management
-- Dark/Light Mode Toggle
+### Patient Management
+- ✅ Patient registration and profiles
+- ✅ Medical history tracking
+- ✅ Health records management
+- ✅ Patient search and filtering
+- ✅ Insurance information
 
-### 🎨 UI/UX Features
-- Professional, responsive design
-- Mobile-first approach
-- Dark/Light theme support
-- Form validation and error handling
-- Loading states and animations
-- Accessible components
-- Intuitive navigation
+### Doctor Management
+- ✅ Doctor profiles and specialization
+- ✅ Doctor availability scheduling
+- ✅ Consultation history
+- ✅ Doctor performance metrics
+
+### Appointment System
+- ✅ Appointment booking and scheduling
+- ✅ Appointment cancellation
+- ✅ Appointment rescheduling
+- ✅ Calendar view with availability
+- ✅ Email/SMS notifications
+- ✅ Appointment status tracking
+
+### Medical Records
+- ✅ Prescription management
+- ✅ Lab reports
+- ✅ Medical test records
+- ✅ Document upload and storage
+- ✅ Medical history timeline
+
+### Pharmacy & Inventory
+- ✅ Medicine inventory management
+- ✅ Medicine search with filters
+- ✅ Stock tracking
+- ✅ Medicine reorder alerts
+- ✅ Medicine categorization
+
+### Billing & Payments
+- ✅ Invoice generation
+- ✅ Payment gateway integration
+- ✅ Payment history
+- ✅ Billing reports
+- ✅ Multiple payment methods
+
+### Dashboard & Analytics
+- ✅ Role-specific dashboards
+- ✅ Key metrics and statistics
+- ✅ Charts and graphs
+- ✅ Reports and analytics
+- ✅ Data export functionality
+
+### UI/UX Features
+- ✅ Responsive design (mobile, tablet, desktop)
+- ✅ Dark/Light mode toggle
+- ✅ Modern Tailwind CSS styling
+- ✅ Smooth animations and transitions
+- ✅ Accessibility features
+
+### Additional Features
+- ✅ Search functionality
+- ✅ Advanced filtering
+- ✅ Pagination
+- ✅ Notifications system
+- ✅ Activity logging
+- ✅ Error handling and validation
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 18** + **Vite** (lightning-fast build)
-- **Tailwind CSS** (utility-first styling)
-- **Axios** (HTTP client)
-- **React Router** (client-side routing)
-- **Context API** (state management)
-- **React Icons** (icon library)
-- **date-fns** (date utilities)
+- **React 18** - UI library
+- **Vite** - Build tool for fast development
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
+- **Redux/Context API** - State management
+- **React Query** - Server state management
+- **React Hook Form** - Form management
+- **Chart.js / Recharts** - Data visualization
+- **React Icons** - Icon library
 
 ### Backend
-- **Node.js** + **Express.js** (server framework)
-- **MongoDB** (NoSQL database)
-- **Mongoose** (ODM for MongoDB)
-- **JWT** (token-based authentication)
-- **Bcryptjs** (password hashing)
-- **Joi** (input validation)
-- **CORS** (cross-origin requests)
-- **Dotenv** (environment variables)
-
-## 📋 Prerequisites
-
-- **Node.js** v14+ ([Download](https://nodejs.org/))
-- **MongoDB** v4.4+ ([Download](https://www.mongodb.com/try/download/community) or use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
-- **npm** or **yarn**
-- **Git**
-
-## 🚀 Quick Start
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/sowmyaq/hospital-management-system.git
-cd hospital-management-system
-```
-
-### 2. Backend Setup
-
-```bash
-cd backend
-
-# Install dependencies
-npm install
-
-# Create environment file
-cp .env.example .env
-
-# Configure .env file with your settings
-# MONGODB_URI=mongodb://localhost:27017/hospital_db
-# JWT_SECRET=your_super_secret_key_here
-# JWT_EXPIRE=7d
-# PORT=5000
-
-# Start backend server
-npm run dev
-```
-
-**Backend runs on:** `http://localhost:5000`
-
-### 3. Frontend Setup (in another terminal)
-
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Create environment file
-cp .env.example .env
-
-# Configure .env file
-# VITE_API_URL=http://localhost:5000/api
-
-# Start frontend server
-npm run dev
-```
-
-**Frontend runs on:** `http://localhost:5173`
-
-## 🔑 Test Credentials
-
-### Admin
-```
-Email: admin@hospital.com
-Password: Admin@123
-```
-
-### Doctor
-```
-Email: doctor@hospital.com
-Password: Doctor@123
-```
-
-### Receptionist
-```
-Email: receptionist@hospital.com
-Password: Receptionist@123
-```
-
-### Patient
-```
-Email: patient@hospital.com
-Password: Patient@123
-```
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB ODM
+- **JWT** - Authentication
+- **bcryptjs** - Password hashing
+- **Multer** - File upload
+- **Nodemailer** - Email service
+- **Joi** - Input validation
+- **Dotenv** - Environment configuration
+- **CORS** - Cross-origin resource sharing
+- **Morgan** - HTTP request logger
 
 ## 📁 Project Structure
 
 ```
 hospital-management-system/
-├── backend/
+├── frontend/                 # React + Vite application
 │   ├── src/
-│   │   ├── config/
-│   │   │   └── database.js          # MongoDB connection
-│   │   ├── controllers/             # Business logic
-│   │   │   ├── authController.js
-│   │   │   ├── patientController.js
-│   │   │   ├── doctorController.js
-│   │   │   ├── appointmentController.js
-│   │   │   ├── recordController.js
-│   │   │   ├── billingController.js
-│   │   │   └── pharmacyController.js
-│   │   ├── models/                  # Mongoose schemas
-│   │   │   ├── User.js
-│   │   │   ├── Patient.js
-│   │   │   ├── Doctor.js
-│   │   │   ├── Appointment.js
-│   │   │   ├── MedicalRecord.js
-│   │   │   ├── Billing.js
-│   │   │   └── Medicine.js
-│   │   ├── routes/                  # API endpoints
-│   │   │   ├── authRoutes.js
-│   │   │   ├── patientRoutes.js
-│   │   │   ├── doctorRoutes.js
-│   │   │   ├── appointmentRoutes.js
-│   │   │   ├── recordRoutes.js
-│   │   │   ├── billingRoutes.js
-│   │   │   ├── pharmacyRoutes.js
-│   │   │   └── dashboardRoutes.js
-│   │   ├── middleware/
-│   │   │   └── auth.js              # JWT & role middleware
-│   │   ├── validators/
-│   │   │   └── authValidator.js
-│   │   └── app.js
-│   ├── server.js
-│   ├── .env.example
-│   ├── package.json
-│   └── README.md
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Layout/
-│   │   │   │   ├── Header.jsx
-│   │   │   │   ├── Sidebar.jsx
-│   │   │   │   ├── Footer.jsx
-│   │   │   │   └── DarkModeToggle.jsx
-│   │   │   ├── Auth/
-│   │   │   │   ├── Login.jsx
-│   │   │   │   ├── Register.jsx
-│   │   │   │   └── ProtectedRoute.jsx
-│   │   │   ├── Dashboard/
-│   │   │   │   ├── AdminDashboard.jsx
-│   │   │   │   ├── DoctorDashboard.jsx
-│   │   │   │   ├── ReceptionistDashboard.jsx
-│   │   │   │   └── PatientDashboard.jsx
-│   │   │   ├── Common/
-│   │   │   │   ├── Button.jsx
-│   │   │   │   ├── Card.jsx
-│   │   │   │   ├── Modal.jsx
-│   │   │   │   ├── Input.jsx
-│   │   │   │   ├── Table.jsx
-│   │   │   │   ├── Pagination.jsx
-│   │   │   │   └── LoadingSpinner.jsx
-│   │   │   ├── Patient/
-│   │   │   │   ├── PatientList.jsx
-│   │   │   │   ├── PatientForm.jsx
-│   │   │   │   └── PatientDetail.jsx
-│   │   │   ├── Doctor/
-│   │   │   │   ├── DoctorList.jsx
-│   │   │   │   ├── DoctorForm.jsx
-│   │   │   │   └── DoctorDetail.jsx
-│   │   │   ├── Appointment/
-│   │   │   │   ├── AppointmentList.jsx
-│   │   │   │   ├── AppointmentForm.jsx
-│   │   │   │   └── AppointmentCalendar.jsx
-│   │   │   ├── Medical/
-│   │   │   │   ├── MedicalRecordList.jsx
-│   │   │   │   ├── MedicalRecordForm.jsx
-│   │   │   │   └── Prescription.jsx
-│   │   │   ├── Billing/
-│   │   │   │   ├── BillingList.jsx
-│   │   │   │   ├── BillingForm.jsx
-│   │   │   │   └── PaymentProcessor.jsx
-│   │   │   └── Pharmacy/
-│   │   │       ├── MedicineList.jsx
-│   │   │       ├── MedicineForm.jsx
-│   │   │       └── InventoryStatus.jsx
-│   │   ├── pages/
-│   │   │   ├── Home.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Patients.jsx
-│   │   │   ├── Doctors.jsx
-│   │   │   ├── Appointments.jsx
-│   │   │   ├── MedicalRecords.jsx
-│   │   │   ├── Billing.jsx
-│   │   │   ├── Pharmacy.jsx
-│   │   │   ├── Profile.jsx
-│   │   │   └── NotFound.jsx
-│   │   ├── hooks/
-│   │   │   ├── useAuth.js
-│   │   │   ├── useApi.js
-│   │   │   └── useDarkMode.js
-│   │   ├── context/
-│   │   │   ├── AuthContext.jsx
-│   │   │   └── DarkModeContext.jsx
-│   │   ├── utils/
-│   │   │   ├── api.js
-│   │   │   ├── formatters.js
-│   │   │   ├── validators.js
-│   │   │   └── constants.js
-│   │   ├── styles/
-│   │   │   ├── globals.css
-│   │   │   └── animations.css
+│   │   ├── components/       # Reusable components
+│   │   ├── pages/            # Page components
+│   │   ├── layouts/          # Layout components
+│   │   ├── services/         # API services
+│   │   ├── store/            # Redux/Context state
+│   │   ├── hooks/            # Custom hooks
+│   │   ├── utils/            # Utility functions
+│   │   ├── styles/           # Global styles
+│   │   ├── constants/        # Constants
+│   │   ├── types/            # TypeScript types
 │   │   ├── App.jsx
 │   │   └── main.jsx
-│   ├── public/
-│   ├── .env.example
+│   ├── public/               # Static assets
 │   ├── vite.config.js
 │   ├── tailwind.config.js
 │   ├── postcss.config.js
-│   ├── package.json
-│   └── README.md
+│   └── package.json
 │
-├── database/
-│   ├── schemas.md                   # Database schema documentation
-│   └── sample-data.json             # Sample data for testing
+├── backend/                  # Node.js + Express application
+│   ├── src/
+│   │   ├── models/           # Mongoose models
+│   │   ├── controllers/      # Route controllers
+│   │   ├── routes/           # API routes
+│   │   ├── middleware/       # Custom middleware
+│   │   ├── services/         # Business logic
+│   │   ├── validators/       # Input validators
+│   │   ├── config/           # Configuration files
+│   │   ├── utils/            # Utility functions
+│   │   ├── constants/        # Constants
+│   │   ├── seeders/          # Database seeders
+│   │   └── server.js         # Entry point
+│   ├── uploads/              # File storage
+│   ├── logs/                 # Application logs
+│   ├── .env.example
+│   └── package.json
 │
-└── README.md (this file)
+└── README.md                 # This file
 ```
 
-## 🔌 API Endpoints
+## 🚀 Getting Started
 
-### Authentication
-```
-POST   /api/auth/register      - Register new user
-POST   /api/auth/login         - Login user
-GET    /api/auth/me            - Get current user
-```
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local or cloud)
+- npm or yarn
 
-### Users
-```
-GET    /api/users              - Get all users (admin only)
-GET    /api/users/:id          - Get user by ID
-PUT    /api/users/:id          - Update user
-```
+### Backend Setup
 
-### Patients
-```
-GET    /api/patients           - Get all patients (paginated)
-GET    /api/patients/:id       - Get patient by ID
-POST   /api/patients           - Create new patient
-PUT    /api/patients/:id       - Update patient
-DELETE /api/patients/:id       - Delete patient
-```
+1. **Navigate to backend directory**
+   ```bash
+   cd backend
+   ```
 
-### Doctors
-```
-GET    /api/doctors            - Get all doctors
-GET    /api/doctors/:id        - Get doctor by ID
-POST   /api/doctors            - Create new doctor (admin only)
-PUT    /api/doctors/:id        - Update doctor
-DELETE /api/doctors/:id        - Delete doctor (admin only)
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Appointments
-```
-GET    /api/appointments       - Get all appointments (paginated)
-GET    /api/appointments/:id   - Get appointment by ID
-POST   /api/appointments       - Book appointment
-PUT    /api/appointments/:id   - Update appointment
-DELETE /api/appointments/:id   - Cancel appointment
-```
+3. **Create environment file**
+   ```bash
+   cp .env.example .env
+   ```
 
-### Medical Records
-```
-GET    /api/records            - Get all records (paginated)
-GET    /api/records/:id        - Get record by ID
-POST   /api/records            - Create new record (doctor only)
-PUT    /api/records/:id        - Update record (doctor only)
-DELETE /api/records/:id        - Delete record (admin only)
-```
+4. **Configure environment variables**
+   ```env
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/hospital_management
+   JWT_SECRET=your_jwt_secret_key_here
+   JWT_EXPIRE=7d
+   NODE_ENV=development
+   ```
 
-### Billing
-```
-GET    /api/billing            - Get all bills (paginated)
-GET    /api/billing/:id        - Get bill by ID
-POST   /api/billing            - Create bill (admin/receptionist)
-PUT    /api/billing/:id        - Update bill
-POST   /api/billing/:id/pay    - Process payment
-```
+5. **Seed the database (optional)**
+   ```bash
+   npm run seed
+   ```
 
-### Pharmacy
-```
-GET    /api/pharmacy           - Get all medicines (paginated)
-GET    /api/pharmacy/:id       - Get medicine by ID
-POST   /api/pharmacy           - Add medicine (admin/receptionist)
-PUT    /api/pharmacy/:id       - Update medicine
-DELETE /api/pharmacy/:id       - Delete medicine (admin)
-```
+6. **Start the backend server**
+   ```bash
+   npm run dev
+   ```
 
-### Dashboard
-```
-GET    /api/dashboard/admin    - Admin dashboard data
-GET    /api/dashboard/doctor   - Doctor dashboard data
-GET    /api/dashboard/patient  - Patient dashboard data
-```
+   Backend will run on `http://localhost:5000`
 
-## 🗄️ Database Models
+### Frontend Setup
 
-### User
-```javascript
+1. **Navigate to frontend directory**
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Create environment file**
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Configure environment variables**
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+   Frontend will run on `http://localhost:5173`
+
+## 📚 API Documentation
+
+### Authentication Endpoints
+
+#### Register
+```http
+POST /api/auth/register
+Content-Type: application/json
+
 {
-  firstName: String,
-  lastName: String,
-  email: String (unique),
-  password: String (hashed),
-  phone: String,
-  role: String (admin|doctor|receptionist|patient),
-  profileImage: String,
-  isActive: Boolean,
-  createdAt: Date,
-  updatedAt: Date
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "password": "securePassword123",
+  "phone": "+1234567890",
+  "role": "patient"
 }
 ```
 
-### Patient
-```javascript
+#### Login
+```http
+POST /api/auth/login
+Content-Type: application/json
+
 {
-  userId: ObjectId (ref: User),
-  patientId: String (unique),
-  dateOfBirth: Date,
-  gender: String,
-  bloodGroup: String,
-  address: String,
-  medicalHistory: [String],
-  allergies: [String],
-  insurance: {
-    provider: String,
-    policyNumber: String,
-    expiryDate: Date
-  },
-  createdAt: Date,
-  updatedAt: Date
+  "email": "john@example.com",
+  "password": "securePassword123"
 }
 ```
+
+#### Refresh Token
+```http
+POST /api/auth/refresh-token
+Authorization: Bearer <refresh_token>
+```
+
+### User Endpoints
+
+#### Get Profile
+```http
+GET /api/users/profile
+Authorization: Bearer <token>
+```
+
+#### Update Profile
+```http
+PUT /api/users/profile
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "phone": "+1234567890"
+}
+```
+
+### Patient Endpoints
+
+#### Get All Patients
+```http
+GET /api/patients?page=1&limit=10&search=john
+Authorization: Bearer <token>
+```
+
+#### Get Patient by ID
+```http
+GET /api/patients/:id
+Authorization: Bearer <token>
+```
+
+#### Create Patient
+```http
+POST /api/patients
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+#### Update Patient
+```http
+PUT /api/patients/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+### Appointment Endpoints
+
+#### Get All Appointments
+```http
+GET /api/appointments?page=1&limit=10&status=pending
+Authorization: Bearer <token>
+```
+
+#### Book Appointment
+```http
+POST /api/appointments
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "patientId": "patient_id",
+  "doctorId": "doctor_id",
+  "appointmentDate": "2024-07-15",
+  "appointmentTime": "14:00",
+  "reason": "Routine checkup"
+}
+```
+
+#### Cancel Appointment
+```http
+PUT /api/appointments/:id/cancel
+Authorization: Bearer <token>
+```
+
+### Doctor Endpoints
+
+#### Get All Doctors
+```http
+GET /api/doctors?page=1&limit=10&specialization=cardiology
+Authorization: Bearer <token>
+```
+
+#### Get Doctor by ID
+```http
+GET /api/doctors/:id
+Authorization: Bearer <token>
+```
+
+### Pharmacy Endpoints
+
+#### Get All Medicines
+```http
+GET /api/medicines?page=1&limit=10&category=antibiotics
+Authorization: Bearer <token>
+```
+
+#### Search Medicines
+```http
+GET /api/medicines/search?q=paracetamol
+Authorization: Bearer <token>
+```
+
+### Billing Endpoints
+
+#### Get Invoices
+```http
+GET /api/invoices?page=1&limit=10
+Authorization: Bearer <token>
+```
+
+#### Create Invoice
+```http
+POST /api/invoices
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+#### Process Payment
+```http
+POST /api/payments
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+## 🔐 Authentication
+
+All protected routes require a JWT token in the Authorization header:
+
+```
+Authorization: Bearer <token>
+```
+
+### User Roles
+
+1. **Admin** - Full system access, user management, analytics
+2. **Doctor** - Patient management, appointment handling, prescriptions
+3. **Receptionist** - Appointment scheduling, patient check-in, basic management
+4. **Patient** - View own records, book appointments, manage prescriptions
+
+## 📝 Sample User Credentials
+
+### Admin
+- Email: `admin@hospital.com`
+- Password: `Admin123!`
 
 ### Doctor
-```javascript
-{
-  userId: ObjectId (ref: User),
-  specialization: String,
-  licenseNumber: String (unique),
-  experience: Number,
-  qualifications: [String],
-  consultationFee: Number,
-  availableDays: [{
-    day: String,
-    startTime: String,
-    endTime: String
-  }],
-  rating: Number,
-  createdAt: Date,
-  updatedAt: Date
-}
-```
+- Email: `doctor@hospital.com`
+- Password: `Doctor123!`
 
-### Appointment
-```javascript
-{
-  appointmentId: String (unique),
-  patientId: ObjectId (ref: Patient),
-  doctorId: ObjectId (ref: Doctor),
-  date: Date,
-  time: String,
-  reason: String,
-  status: String (scheduled|completed|cancelled|no-show),
-  createdAt: Date,
-  updatedAt: Date
-}
-```
+### Receptionist
+- Email: `receptionist@hospital.com`
+- Password: `Receptionist123!`
 
-### MedicalRecord
-```javascript
-{
-  recordId: String (unique),
-  patientId: ObjectId (ref: Patient),
-  doctorId: ObjectId (ref: Doctor),
-  visitDate: Date,
-  diagnosis: String,
-  prescription: [{
-    medicine: String,
-    dosage: String,
-    duration: String
-  }],
-  vitals: {
-    bloodPressure: String,
-    heartRate: Number,
-    temperature: Number
-  },
-  createdAt: Date
-}
-```
+### Patient
+- Email: `patient@hospital.com`
+- Password: `Patient123!`
 
-### Billing
-```javascript
-{
-  invoiceId: String (unique),
-  patientId: ObjectId (ref: Patient),
-  items: [{
-    description: String,
-    amount: Number,
-    quantity: Number,
-    total: Number
-  }],
-  subtotal: Number,
-  tax: Number,
-  discount: Number,
-  total: Number,
-  paidAmount: Number,
-  status: String (pending|paid|partial|cancelled),
-  paymentMethod: String,
-  paymentDate: Date,
-  createdAt: Date
-}
-```
+## 🎨 UI Components
 
-### Medicine
-```javascript
-{
-  medicineId: String (unique),
-  name: String,
-  genericName: String,
-  manufacturer: String,
-  category: String,
-  unit: String,
-  price: Number,
-  stock: Number,
-  minimumStock: Number,
-  expiryDate: Date,
-  usage: String,
-  createdAt: Date,
-  updatedAt: Date
-}
-```
+The frontend includes reusable components:
 
-## 🛡️ Security Features
+- **Buttons** - Primary, secondary, danger variants
+- **Forms** - Input, textarea, select, checkbox, radio
+- **Cards** - Information cards with various layouts
+- **Tables** - Sortable, filterable, paginated tables
+- **Modals** - Confirmation, form, and alert modals
+- **Navbars** - Responsive navigation with role-based menus
+- **Sidebars** - Collapsible sidebars with route links
+- **Alerts** - Success, error, warning notifications
+- **Loaders** - Loading spinners and skeletons
+- **Charts** - Various chart types for analytics
+- **Filters** - Advanced filtering components
+- **Search** - Search with suggestions
 
-✅ **JWT Authentication**
-- Secure token-based authentication
-- Token expiration (7 days default)
-- Refresh token mechanism
+## 🔍 Search & Filtering
 
-✅ **Role-Based Access Control**
-- 4 role levels: Admin, Doctor, Receptionist, Patient
-- Route-level authorization
-- Resource-level permissions
+- **Global Search** - Search across patients, doctors, medicines
+- **Advanced Filters** - Filter by multiple criteria
+- **Pagination** - Efficient data loading
+- **Sorting** - Sort by various columns
 
-✅ **Password Security**
-- Bcryptjs hashing (10 rounds)
-- No plain-text storage
-- Strong password validation
+## 📊 Reports & Analytics
 
-✅ **Data Protection**
-- Input validation with Joi
-- XSS protection
-- SQL injection prevention
-- CORS protection
-
-✅ **API Security**
-- Rate limiting ready
-- Error logging
-- Secure headers
+- **Dashboard Metrics** - Key performance indicators
+- **Charts** - Bar, line, pie charts for data visualization
+- **Reports** - Comprehensive reports for admin and management
+- **Data Export** - Export data in CSV/PDF formats
 
 ## 🌙 Dark/Light Mode
 
-The application includes built-in dark and light mode support:
-- Toggle button in header
-- Persistent preference (localStorage)
-- Smooth transitions
-- Accessible color contrasts
+- Theme toggle in settings
+- Persistent theme preference
+- System theme detection
+- Smooth transitions between themes
 
 ## 📱 Responsive Design
 
 - Mobile-first approach
-- Breakpoints:
-  - Mobile: < 640px
-  - Tablet: 640px - 1024px
-  - Desktop: > 1024px
-- Touch-friendly interface
-- Optimized for all screen sizes
+- Tablet and desktop optimized
+- Touch-friendly interfaces
+- Flexible layouts
 
-## 📊 Features by Role
+## ✅ Input Validation
 
-### Admin
-- View system statistics
-- Manage users (create, edit, delete)
-- Manage doctors
-- Manage receptionists
-- View all appointments
-- View financial reports
-- Pharmacy management
-- System settings
+- Client-side validation with React Hook Form
+- Server-side validation with Joi
+- Real-time error messages
+- Password strength indicators
+- Email verification
 
-### Doctor
-- View assigned appointments
-- Update appointment status
-- Add medical records
-- View patient history
-- Manage prescriptions
-- View consultation earnings
-- Update profile
-- View notifications
+## 🛡️ Security Features
 
-### Receptionist
-- Schedule appointments
-- Check-in patients
-- Manage billing
-- Update appointment status
-- View pharmacy inventory
-- Generate receipts
-- View notifications
+- JWT token-based authentication
+- Password hashing with bcryptjs
+- CORS protection
+- Rate limiting
+- Input sanitization
+- SQL/NoSQL injection prevention
+- XSS protection
+- CSRF protection
 
-### Patient
-- Book appointments
-- View appointment history
-- Access medical records
-- View prescriptions
-- Check billing
-- Download receipts
-- Update profile
-- View notifications
+## 📧 Notifications
 
-## 🔧 Development
+- Email notifications for appointments
+- SMS notifications (integration ready)
+- In-app notifications
+- Notification preferences
+- Notification history
 
-### Backend Development
+## 🔄 State Management
+
+- Context API for global state
+- Redux for complex state (optional)
+- React Query for server state
+- Local storage for persistence
+
+## 🧪 Error Handling
+
+- Comprehensive error handling
+- User-friendly error messages
+- Error logging and tracking
+- Fallback UI components
+- Error boundary implementation
+
+## 📦 Deployment
+
+### Backend Deployment (Heroku, AWS, DigitalOcean)
+
+1. Create `.env` file with production variables
+2. Deploy to your hosting platform
+3. Set up MongoDB Atlas for cloud database
+
+### Frontend Deployment (Vercel, Netlify)
+
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder
+3. Set production API URL in environment variables
+
+## 🚦 Running in Production
 
 ```bash
+# Backend
 cd backend
-
-# Install dev dependencies
-npm install --save-dev nodemon
-
-# Run with auto-reload
-npm run dev
-
-# Production start
-npm start
-```
-
-### Frontend Development
-
-```bash
-cd frontend
-
-# Run dev server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-## 🧪 Testing Workflows
-
-### Test User Registration
-1. Open http://localhost:5173
-2. Click "Register"
-3. Fill in details
-4. Submit
-5. Login with new credentials
-
-### Test Appointment Booking
-1. Login as Patient
-2. Go to "Appointments"
-3. Click "Book Appointment"
-4. Select Doctor and Date
-5. Submit
-
-### Test Billing
-1. Login as Receptionist
-2. Go to "Billing"
-3. Create new bill
-4. Add items
-5. Process payment
-
-## 🚀 Deployment
-
-### Frontend Deployment (Vercel)
-
-```bash
-cd frontend
-npm run build
-
-# Deploy dist folder to Vercel
-# Or connect GitHub repo to Vercel for auto-deploy
-```
-
-### Backend Deployment (Railway/Render)
-
-```bash
-# Set environment variables in hosting platform
-# Deploy from GitHub repository
-```
-
-### Database
-
-Use MongoDB Atlas for cloud database:
-1. Create account at https://www.mongodb.com/cloud/atlas
-2. Create cluster
-3. Get connection string
-4. Update MONGODB_URI in backend .env
-
-## 📝 Environment Variables
-
-### Backend `.env`
-```
-MONGODB_URI=mongodb://localhost:27017/hospital_db
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRE=7d
-PORT=5000
-NODE_ENV=development
-CLIENT_URL=http://localhost:5173
-```
-
-### Frontend `.env`
-```
-VITE_API_URL=http://localhost:5000/api
-VITE_APP_NAME=Hospital Management System
-```
-
-## ❓ Troubleshooting
-
-### MongoDB Connection Error
-```
-Error: connect ECONNREFUSED 127.0.0.1:27017
-```
-**Solution:** Start MongoDB
-```bash
-# macOS
-brew services start mongodb-community
-
-# Windows
-mongod
-```
-
-### CORS Error
-**Solution:** Check URLs match between frontend and backend
-- Backend: `VITE_API_URL=http://localhost:5000/api`
-- Frontend: `CLIENT_URL=http://localhost:5173`
-
-### Port Already in Use
-```bash
-# Kill process on port
-lsof -ti:5000 | xargs kill -9
-```
-
-### Dependencies Installation Issues
-```bash
-# Clear cache and reinstall
-rm -rf node_modules package-lock.json
 npm install
+npm run build
+npm start
+
+# Frontend
+cd frontend
+npm install
+npm run build
+# Serve dist folder with static server
 ```
 
-## 📚 Documentation
+## 📝 License
 
-- [API Documentation](./API_DOCS.md)
-- [Database Schema](./database/schemas.md)
-- [Setup Guide](./SETUP_GUIDE.md)
-- [Contributing Guide](./CONTRIBUTING.md)
+MIT License - feel free to use this project for personal or commercial use.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Open Pull Request
+Contributions are welcome! Please follow the coding standards and create a pull request.
 
-## 📄 License
+## 📧 Support
 
-MIT License - Free for personal and commercial use
+For support, email support@hospital-management.com or open an issue on GitHub.
 
-## 👨‍💻 Author
+## 🎯 Future Enhancements
 
-Created with ❤️ for hospital management needs
+- [ ] Video consultation feature
+- [ ] AI-powered symptom checker
+- [ ] Mobile app (React Native)
+- [ ] Advanced analytics with machine learning
+- [ ] Telemedicine integration
+- [ ] Insurance claims management
+- [ ] Multi-language support
+- [ ] Advanced scheduling algorithms
+- [ ] Patient portal with health records download
+- [ ] Integration with hospital equipment
 
-## 🆘 Support
+## 📞 Contact
 
-For issues or questions:
-1. Check documentation
-2. Review existing issues
-3. Create new issue with details
-4. Contact maintainer
+Created with ❤️ for better healthcare management.
 
----
-
-**Happy Coding!** 🚀
-
-Last Updated: 2024
+Version: 1.0.0
+Last Updated: June 2024
